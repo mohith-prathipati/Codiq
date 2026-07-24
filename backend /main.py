@@ -11,7 +11,13 @@ from fastapi import FastAPI, UploadFile, File, Form, HTTPException, BackgroundTa
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 
-app = FastAPI(title="Codiq Engine API", version="2.0.0,root_path='/api")
+app = FastAPI(
+    title="Codiq Engine API",
+    version="2.0.0",
+    root_path="/api",
+    docs_url="/docs",
+    openapi_url="/openapi.json"
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://localhost:3000"],
